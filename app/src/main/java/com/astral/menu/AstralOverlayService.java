@@ -15,15 +15,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class AstralOverlayService extends Service {
-    public static volatile boolean chinaHat = false;
-    public static volatile boolean fps120   = false;
-    public static volatile boolean smooth   = false;
-    public static volatile boolean noLag    = false;
+    public static volatile boolean chinaHat  = false;
+    public static volatile boolean fps120    = false;
+    public static volatile boolean smooth    = false;
+    public static volatile boolean noLag     = false;
     public static volatile boolean stretch43 = false;
 
     private WindowManager wm;
@@ -56,7 +55,7 @@ public class AstralOverlayService extends Service {
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                     PixelFormat.TRANSLUCENT);
             menuParams.gravity = Gravity.TOP | Gravity.START;
-            menuParams.x = 60; menuParams.y = 200;
+            menuParams.x = 40; menuParams.y = 200;
             wm.addView(menuView, menuParams);
 
             fabView = buildFab();
@@ -133,19 +132,13 @@ public class AstralOverlayService extends Service {
     }
 
     private void bindMenu() {
-        CheckBox cbHat   = menuView.findViewById(R.id.cbChinaHat);
-        CheckBox cbFps   = menuView.findViewById(R.id.cbFps);
-        CheckBox cbSm    = menuView.findViewById(R.id.cbSmooth);
-        CheckBox cbNoLag = menuView.findViewById(R.id.cbNoLag);
+        CheckBox cbHat     = menuView.findViewById(R.id.cbChinaHat);
+        CheckBox cbFps     = menuView.findViewById(R.id.cbFps);
+        CheckBox cbSm      = menuView.findViewById(R.id.cbSmooth);
+        CheckBox cbNoLag   = menuView.findViewById(R.id.cbNoLag);
         CheckBox cbStretch = menuView.findViewById(R.id.cbStretch);
-        TextView close   = menuView.findViewById(R.id.btnClose);
-        TextView hide    = menuView.findViewById(R.id.btnHide);
-        LinearLayout tabV = menuView.findViewById(R.id.tabVisual);
-        LinearLayout tabO = menuView.findViewById(R.id.tabOpt);
-        LinearLayout tabS = menuView.findViewById(R.id.tabSet);
-        final View pageV = menuView.findViewById(R.id.pageVisual);
-        final View pageO = menuView.findViewById(R.id.pageOpt);
-        final View pageS = menuView.findViewById(R.id.pageSet);
+        TextView close     = menuView.findViewById(R.id.btnClose);
+        TextView hide      = menuView.findViewById(R.id.btnHide);
 
         cbHat.setOnCheckedChangeListener((v, c)     -> chinaHat  = c);
         cbFps.setOnCheckedChangeListener((v, c)     -> fps120    = c);
@@ -155,22 +148,6 @@ public class AstralOverlayService extends Service {
 
         close.setOnClickListener(v -> menuView.setVisibility(View.GONE));
         hide.setOnClickListener(v  -> menuView.setVisibility(View.GONE));
-
-        tabV.setOnClickListener(v -> {
-            pageV.setVisibility(View.VISIBLE);
-            pageO.setVisibility(View.GONE);
-            pageS.setVisibility(View.GONE);
-        });
-        tabO.setOnClickListener(v -> {
-            pageV.setVisibility(View.GONE);
-            pageO.setVisibility(View.VISIBLE);
-            pageS.setVisibility(View.GONE);
-        });
-        tabS.setOnClickListener(v -> {
-            pageV.setVisibility(View.GONE);
-            pageO.setVisibility(View.GONE);
-            pageS.setVisibility(View.VISIBLE);
-        });
 
         makeDraggable(menuView.findViewById(R.id.header));
     }
