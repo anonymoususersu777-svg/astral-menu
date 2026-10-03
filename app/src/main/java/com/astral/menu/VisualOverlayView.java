@@ -5,22 +5,18 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.graphics.Typeface;
 import android.view.View;
 
 public class VisualOverlayView extends View {
     private final Paint redPaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint goldPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private final Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public VisualOverlayView(Context c) {
         super(c);
-        redPaint.setColor(0xFFD32F2F);  redPaint.setStyle(Paint.Style.FILL);
-        goldPaint.setColor(0xFFFFD700); goldPaint.setStyle(Paint.Style.FILL);
-        textPaint.setColor(0xFFFFFFFF);
-        textPaint.setTextSize(38f);
-        textPaint.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-        textPaint.setShadowLayer(6f, 0f, 0f, 0xFFD32F2F);
+        redPaint.setColor(0xFFD32F2F);
+        redPaint.setStyle(Paint.Style.FILL);
+        goldPaint.setColor(0xFFFFD700);
+        goldPaint.setStyle(Paint.Style.FILL);
     }
 
     @Override protected void onDraw(Canvas cv) {
@@ -31,8 +27,6 @@ public class VisualOverlayView extends View {
                 drawChinaHat(cv, t[0], t[1] - 160f);
             }
         }
-        if (AstralOverlayService.fakeMoney) drawFakeMoney(cv);
-        if (AstralOverlayService.skins)     drawSkins(cv);
         postInvalidateOnAnimation();
     }
 
@@ -49,21 +43,6 @@ public class VisualOverlayView extends View {
                                hat.right + 14f, hat.bottom);
         cv.drawOval(brim, redPaint);
         cv.drawPath(buildStar(cx, hat.bottom - 30f, 12f), goldPaint);
-    }
-
-    private void drawFakeMoney(Canvas cv) {
-        String money = String.format("$%,d", AstralOverlayService.moneyValue);
-        float x = getWidth() - textPaint.measureText(money) - 60f;
-        textPaint.setColor(0xFF2E7D32);
-        cv.drawText(money, x, 140f, textPaint);
-    }
-
-    private void drawSkins(Canvas cv) {
-        float baseY = getHeight() - 140f;
-        textPaint.setColor(0xFFD32F2F); textPaint.setTextSize(34f);
-        cv.drawText("AK-47 | Astral Redline", 60f, baseY, textPaint);
-        textPaint.setColor(0xFFEDEDED); textPaint.setTextSize(26f);
-        cv.drawText("★ StatTrak™  |  Factory New", 60f, baseY + 44f, textPaint);
     }
 
     private Path buildStar(float cx, float cy, float r) {
