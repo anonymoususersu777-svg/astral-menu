@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root" android:layout_width="380dp"
     android:layout_height="wrap_content" android:orientation="vertical"
-    android:background="@drawable/astral_panel_bg">
+    android:background="#F20A0A0A">
 
     <LinearLayout android:id="@+id/header"
         android:layout_width="match_parent" android:layout_height="42dp"
@@ -124,27 +124,26 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="48dp" android:orientation="horizontal"
         android:background="#FF0A0A0A">
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="🌙" android:textSize="20sp" android:gravity="center"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="💀" android:textSize="20sp" android:gravity="center"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="👁" android:textSize="20sp" android:gravity="center"
-            android:background="#1AD32F2F"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="☀" android:textSize="20sp" android:gravity="center"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="🍃" android:textSize="20sp" android:gravity="center"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="📁" android:textSize="20sp" android:gravity="center"/>
-        <TextView android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="⚙" android:textSize="20sp" android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="🌙" android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="💀" android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="👁" android:textSize="20sp"
+            android:gravity="center" android:background="#1AD32F2F"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="☀" android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="🍃" android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="📁" android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:text="⚙" android:textSize="20sp"
+            android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>

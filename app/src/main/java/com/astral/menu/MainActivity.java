@@ -9,8 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -19,29 +17,18 @@ public class MainActivity extends Activity {
 
     @Override protected void onCreate(Bundle s) {
         super.onCreate(s);
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(60, 120, 60, 60);
+        setContentView(R.layout.activity_main);
 
-        TextView title = new TextView(this);
-        title.setText("ASTRAL MENU"); title.setTextSize(28f);
-        title.setTextColor(0xFFD32F2F); title.setPadding(0, 0, 0, 40);
-        root.addView(title);
+        Button bOverlay = findViewById(R.id.btnOverlay);
+        Button bCapture = findViewById(R.id.btnCapture);
+        Button bStart   = findViewById(R.id.btnStart);
+        Button bStop    = findViewById(R.id.btnStop);
 
-        TextView info = new TextView(this);
-        info.setText("1. Разрешение overlay\n2. Разрешение захвата\n3. Запустить меню\n4. Свернуть и открыть игру");
-        info.setTextColor(0xFFEDEDED); info.setTextSize(15f);
-        info.setPadding(0, 0, 0, 50);
-        root.addView(info);
-
-        Button b1 = new Button(this); b1.setText("1. Разрешение overlay");
-        b1.setOnClickListener(v -> requestOverlay()); root.addView(b1);
-        Button b2 = new Button(this); b2.setText("2. Разрешение захвата");
-        b2.setOnClickListener(v -> requestCapture()); root.addView(b2);
-        Button b3 = new Button(this); b3.setText("3. Запустить Astral");
-        b3.setOnClickListener(v -> startAstral()); root.addView(b3);
-
-        setContentView(root);
+        bOverlay.setOnClickListener(v -> requestOverlay());
+        bCapture.setOnClickListener(v -> requestCapture());
+        bStart.setOnClickListener(v   ->
+                startActivity(new Intent(this, MenuActivity.class)));
+        bStop.setOnClickListener(v    -> stopAstral());
     }
 
     private void requestOverlay() {
@@ -50,8 +37,10 @@ public class MainActivity extends Activity {
                 startActivityForResult(new Intent(
                         Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                         Uri.parse("package:" + getPackageName())), REQ_OVERLAY);
-            } else Toast.makeText(this, "Уже разрешено",
-                    Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Overlay уже разрешён",
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -62,15 +51,10 @@ public class MainActivity extends Activity {
             startActivityForResult(mgr.createScreenCaptureIntent(), REQ_CAPTURE);
     }
 
-    private void startAstral() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && !Settings.canDrawOverlays(this)) {
-            Toast.makeText(this, "Сначала overlay", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        startForegroundService(new Intent(this, AstralOverlayService.class));
-        Toast.makeText(this, "Astral запущен", Toast.LENGTH_SHORT).show();
-        moveTaskToBack(true);
+    private void stopAstral() {
+        stopService(new Intent(this, AstralOverlayService.class));
+        stopService(new Intent(this, ScreenCaptureService.class));
+        Toast.makeText(this, "Меню выключено", Toast.LENGTH_SHORT).show();
     }
 
     @Override protected void onActivityResult(int req, int res, Intent data) {

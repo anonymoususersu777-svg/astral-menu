@@ -19,5 +19,6 @@
             android:foregroundServiceType="mediaProjection"/>
         <service android:name=".ScreenCaptureService" android:exported="false"
             android:foregroundServiceType="mediaProjection"/>
+    <activity android:name=".MenuActivity" android:exported="false"/>
     </application>
 </manifest>

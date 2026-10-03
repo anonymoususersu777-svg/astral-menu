@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF070608"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ASTRAL MENU"
+            android:textColor="#FFD32F2F"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.22"
+            android:shadowColor="#FFD32F2F"
+            android:shadowRadius="14"
+            android:paddingBottom="14dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/astral_list_bg"
+            android:padding="14dp"
+            android:layout_marginBottom="20dp">
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="●  1. Разрешение overlay"
+                android:textColor="#FFEDEDED" android:textSize="14sp"
+                android:paddingBottom="8dp"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="●  2. Разрешение захвата"
+                android:textColor="#FFEDEDED" android:textSize="14sp"
+                android:paddingBottom="8dp"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="●  3. START — открыть меню"
+                android:textColor="#FFEDEDED" android:textSize="14sp"
+                android:paddingBottom="8dp"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="●  4. Свернуть и открыть игру"
+                android:textColor="#FFEDEDED" android:textSize="14sp"/>
+        </LinearLayout>
+        <Button android:id="@+id/btnOverlay"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:text="1. РАЗРЕШЕНИЕ OVERLAY" android:textColor="#FFD32F2F"
+            android:textSize="13sp" android:letterSpacing="0.05"
+            android:background="@drawable/astral_button_bg"
+            android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnCapture"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:text="2. РАЗРЕШЕНИЕ ЗАХВАТА" android:textColor="#FFD32F2F"
+            android:textSize="13sp" android:letterSpacing="0.05"
+            android:background="@drawable/astral_button_bg"
+            android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnStart"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:text="3. START" android:textColor="#FFD32F2F"
+            android:textSize="13sp" android:letterSpacing="0.05"
+            android:background="@drawable/astral_button_bg"
+            android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnStop"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:text="4. ВЫКЛЮЧИТЬ МЕНЮ" android:textColor="#FFD32F2F"
+            android:textSize="13sp" android:letterSpacing="0.05"
+            android:background="@drawable/astral_button_bg"
+            android:layout_marginBottom="20dp"/>
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="v0.1.0 beta" android:textColor="#80FFFFFF"
+            android:textSize="11sp" android:gravity="center"
+            android:paddingTop="20dp"/>
+    </LinearLayout>
+</ScrollView>
