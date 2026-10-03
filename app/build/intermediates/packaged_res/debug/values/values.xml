@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="astral_bg">#E60A0A0A</color>
+    <color name="astral_red">#FFD32F2F</color>
+    <color name="astral_text">#FFEDEDED</color>
+    <string name="app_name">Astral</string>
+    <style name="Theme.Astral" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/astral_bg</item>
+        <item name="android:statusBarColor">@color/astral_bg</item>
+    </style>
+</resources>

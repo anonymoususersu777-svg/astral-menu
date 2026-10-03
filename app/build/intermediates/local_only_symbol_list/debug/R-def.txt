@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+color astral_bg
+color astral_red
+color astral_text
+drawable astral_header_bg
+drawable astral_panel_bg
+id btnClose
+id cbChinaHat
+id cbFakeMoney
+id cbSkins
+id header
+id root
+id sbMoney
+id tvMoneyVal
+layout astral_menu
+string app_name
+style Theme.Astral

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.astral.menu.app-merged_res-20:/drawable_astral_panel_bg.xml.flat",
+        "source": "com.astral.menu.app-main-22:/drawable/astral_panel_bg.xml"
+    },
+    {
+        "merged": "com.astral.menu.app-merged_res-20:/layout_astral_menu.xml.flat",
+        "source": "com.astral.menu.app-main-22:/layout/astral_menu.xml"
+    },
+    {
+        "merged": "com.astral.menu.app-merged_res-20:/drawable_astral_header_bg.xml.flat",
+        "source": "com.astral.menu.app-main-22:/drawable/astral_header_bg.xml"
+    }
+]

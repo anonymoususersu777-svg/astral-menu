@@ -1,0 +1,103 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.astral.menu"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:3:5-77
+11-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:3:22-75
+12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+12-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:4:5-76
+12-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:4:22-74
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+13-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:5:5-93
+13-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:5:22-91
+14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+14-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:6:5-76
+14-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:6:22-74
+15
+16    <permission
+16-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+17        android:name="com.astral.menu.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+17-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+18        android:protectionLevel="signature" />
+18-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+19
+20    <uses-permission android:name="com.astral.menu.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+20-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+21
+22    <application
+22-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:7:5-18:19
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.9.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/a309491863f1cad1388d82071cb60f8c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+24        android:debuggable="true"
+25        android:extractNativeLibs="false"
+26        android:label="Astral"
+26-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:7:18-40
+27        android:theme="@style/Theme.Astral" >
+27-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:7:41-76
+28        <activity
+28-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:8:9-13:20
+29            android:name="com.astral.menu.MainActivity"
+29-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:8:19-47
+30            android:exported="true" >
+30-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:8:48-71
+31            <intent-filter>
+31-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:9:13-12:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:10:17-68
+32-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:10:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:11:17-76
+34-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:11:27-74
+35            </intent-filter>
+36        </activity>
+37
+38        <service
+38-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:14:9-15:62
+39            android:name="com.astral.menu.AstralOverlayService"
+39-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:14:18-54
+40            android:exported="false"
+40-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:14:55-79
+41            android:foregroundServiceType="mediaProjection" />
+41-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:15:13-60
+42        <service
+42-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:16:9-17:62
+43            android:name="com.astral.menu.ScreenCaptureService"
+43-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:16:18-54
+44            android:exported="false"
+44-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:16:55-79
+45            android:foregroundServiceType="mediaProjection" />
+45-->/data/data/com.termux/files/home/AstralMenu/app/src/main/AndroidManifest.xml:17:13-60
+46
+47        <provider
+47-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+48            android:name="androidx.startup.InitializationProvider"
+48-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+49            android:authorities="com.astral.menu.androidx-startup"
+49-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+50            android:exported="false" >
+50-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+51            <meta-data
+51-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+52                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+52-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+53                android:value="androidx.startup" />
+53-->[androidx.emoji2:emoji2:1.2.0] /data/data/com.termux/files/home/.gradle/caches/transforms-3/70145bbbde0c2efc56f871bf5a5b1060/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+54            <meta-data
+54-->[androidx.lifecycle:lifecycle-process:2.4.1] /data/data/com.termux/files/home/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+55                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+55-->[androidx.lifecycle:lifecycle-process:2.4.1] /data/data/com.termux/files/home/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+56                android:value="androidx.startup" />
+56-->[androidx.lifecycle:lifecycle-process:2.4.1] /data/data/com.termux/files/home/.gradle/caches/transforms-3/0c97545945a2f609e9103ca2ef476be4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+57        </provider>
+58    </application>
+59
+60</manifest>
