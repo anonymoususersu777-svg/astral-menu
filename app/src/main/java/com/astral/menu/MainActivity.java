@@ -26,8 +26,7 @@ public class MainActivity extends Activity {
 
         bOverlay.setOnClickListener(v -> requestOverlay());
         bCapture.setOnClickListener(v -> requestCapture());
-        bStart.setOnClickListener(v   ->
-                startActivity(new Intent(this, MenuActivity.class)));
+        bStart.setOnClickListener(v   -> startAstral());
         bStop.setOnClickListener(v    -> stopAstral());
     }
 
@@ -49,6 +48,19 @@ public class MainActivity extends Activity {
                 (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
         if (mgr != null)
             startActivityForResult(mgr.createScreenCaptureIntent(), REQ_CAPTURE);
+    }
+
+    private void startAstral() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && !Settings.canDrawOverlays(this)) {
+            Toast.makeText(this, "Сначала дай разрешение overlay",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        startForegroundService(new Intent(this, AstralOverlayService.class));
+        Toast.makeText(this, "Меню запущено. Открывай игру.",
+                Toast.LENGTH_LONG).show();
+        moveTaskToBack(true);
     }
 
     private void stopAstral() {

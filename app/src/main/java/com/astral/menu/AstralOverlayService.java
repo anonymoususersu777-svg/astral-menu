@@ -49,13 +49,13 @@ public class AstralOverlayService extends Service {
 
             menuView = LayoutInflater.from(this).inflate(R.layout.astral_menu, null);
             menuParams = new WindowManager.LayoutParams(
-                    WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.MATCH_PARENT,
                     WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                     PixelFormat.TRANSLUCENT);
             menuParams.gravity = Gravity.TOP | Gravity.START;
-            menuParams.x = 40; menuParams.y = 200;
+            menuParams.x = 0; menuParams.y = 200;
             wm.addView(menuView, menuParams);
 
             fabView = buildFab();
