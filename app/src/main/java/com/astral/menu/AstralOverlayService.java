@@ -24,6 +24,7 @@ public class AstralOverlayService extends Service {
     public static volatile boolean fps120   = false;
     public static volatile boolean smooth   = false;
     public static volatile boolean noLag    = false;
+    public static volatile boolean stretch43 = false;
 
     private WindowManager wm;
     private View menuView, fabView, visualView;
@@ -36,7 +37,6 @@ public class AstralOverlayService extends Service {
         startForeground(1, buildNotification());
         wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         if (wm == null) { stopSelf(); return; }
-
         try {
             visualView = new VisualOverlayView(this);
             WindowManager.LayoutParams vp = new WindowManager.LayoutParams(
@@ -61,7 +61,7 @@ public class AstralOverlayService extends Service {
 
             fabView = buildFab();
             fabParams = new WindowManager.LayoutParams(
-                    dp(56), dp(56),
+                    dp(52), dp(52),
                     WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                     PixelFormat.TRANSLUCENT);
@@ -87,7 +87,7 @@ public class AstralOverlayService extends Service {
         TextView fab = new TextView(this);
         fab.setText("A");
         fab.setTextColor(0xFFFFFFFF);
-        fab.setTextSize(22f);
+        fab.setTextSize(20f);
         fab.setGravity(Gravity.CENTER);
         fab.setTypeface(null, Typeface.BOLD);
         GradientDrawable bg = new GradientDrawable();
@@ -137,30 +137,39 @@ public class AstralOverlayService extends Service {
         CheckBox cbFps   = menuView.findViewById(R.id.cbFps);
         CheckBox cbSm    = menuView.findViewById(R.id.cbSmooth);
         CheckBox cbNoLag = menuView.findViewById(R.id.cbNoLag);
+        CheckBox cbStretch = menuView.findViewById(R.id.cbStretch);
         TextView close   = menuView.findViewById(R.id.btnClose);
+        TextView hide    = menuView.findViewById(R.id.btnHide);
         LinearLayout tabV = menuView.findViewById(R.id.tabVisual);
         LinearLayout tabO = menuView.findViewById(R.id.tabOpt);
-        View pageV = menuView.findViewById(R.id.pageVisual);
-        View pageO = menuView.findViewById(R.id.pageOpt);
+        LinearLayout tabS = menuView.findViewById(R.id.tabSet);
+        final View pageV = menuView.findViewById(R.id.pageVisual);
+        final View pageO = menuView.findViewById(R.id.pageOpt);
+        final View pageS = menuView.findViewById(R.id.pageSet);
 
-        cbHat.setOnCheckedChangeListener((v, c)   -> chinaHat = c);
-        cbFps.setOnCheckedChangeListener((v, c)   -> fps120   = c);
-        cbSm.setOnCheckedChangeListener((v, c)    -> smooth   = c);
-        cbNoLag.setOnCheckedChangeListener((v, c) -> noLag    = c);
+        cbHat.setOnCheckedChangeListener((v, c)     -> chinaHat  = c);
+        cbFps.setOnCheckedChangeListener((v, c)     -> fps120    = c);
+        cbSm.setOnCheckedChangeListener((v, c)      -> smooth    = c);
+        cbNoLag.setOnCheckedChangeListener((v, c)   -> noLag     = c);
+        cbStretch.setOnCheckedChangeListener((v, c) -> stretch43 = c);
 
         close.setOnClickListener(v -> menuView.setVisibility(View.GONE));
+        hide.setOnClickListener(v  -> menuView.setVisibility(View.GONE));
 
         tabV.setOnClickListener(v -> {
             pageV.setVisibility(View.VISIBLE);
             pageO.setVisibility(View.GONE);
-            tabV.setBackgroundColor(0x1AD32F2F);
-            tabO.setBackgroundColor(0x00000000);
+            pageS.setVisibility(View.GONE);
         });
         tabO.setOnClickListener(v -> {
             pageV.setVisibility(View.GONE);
             pageO.setVisibility(View.VISIBLE);
-            tabV.setBackgroundColor(0x00000000);
-            tabO.setBackgroundColor(0x1AD32F2F);
+            pageS.setVisibility(View.GONE);
+        });
+        tabS.setOnClickListener(v -> {
+            pageV.setVisibility(View.GONE);
+            pageO.setVisibility(View.GONE);
+            pageS.setVisibility(View.VISIBLE);
         });
 
         makeDraggable(menuView.findViewById(R.id.header));

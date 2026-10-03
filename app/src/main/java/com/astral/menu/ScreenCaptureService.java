@@ -75,20 +75,28 @@ public class ScreenCaptureService extends Service {
                     Bitmap.Config.ARGB_8888);
             buf.rewind();
             bmp.copyPixelsFromBuffer(buf);
-            TargetTracker.update(findTargets(bmp));
+            TargetTracker.update(findGreyMan(bmp));
             bmp.recycle();
         } catch (Exception ignored) {
         } finally { if (img != null) img.close(); }
     }
 
-    private List<float[]> findTargets(Bitmap bmp) {
+    // Серый человечек NoomiClone — ищем серые пятна
+    private List<float[]> findGreyMan(Bitmap bmp) {
         List<float[]> out = new ArrayList<>();
-        int step = 24;
-        for (int y = 0; y < bmp.getHeight(); y += step) {
-            for (int x = 0; x < bmp.getWidth(); x += step) {
+        int step = 20;
+        int w = bmp.getWidth(), h = bmp.getHeight();
+        for (int y = (int)(h*0.25); y < (int)(h*0.85); y += step) {
+            for (int x = (int)(w*0.15); x < (int)(w*0.85); x += step) {
                 int p = bmp.getPixel(x, y);
-                int r = (p >> 16) & 0xFF, g = (p >> 8) & 0xFF, b = p & 0xFF;
-                if (r > 150 && g < 80 && b < 80) out.add(new float[]{x, y});
+                int r = (p >> 16) & 0xFF;
+                int g = (p >> 8) & 0xFF;
+                int b = p & 0xFF;
+                // серый = r ≈ g ≈ b, значения 60-180
+                int maxDiff = Math.max(Math.abs(r-g), Math.max(Math.abs(g-b), Math.abs(r-b)));
+                if (maxDiff < 20 && r > 60 && r < 180) {
+                    out.add(new float[]{x, y});
+                }
             }
         }
         return out;
